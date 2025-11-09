@@ -9,96 +9,48 @@ const Home = () => {
   return (
     <div className="home">
       <div className="hero">
-        <h1>Welcome to MSS BlindBox System</h1>
-        <p className="subtitle">
-          Manage brands and blind boxes with a powerful microservices backend
-        </p>
+        <h1>MSS BlindBox System</h1>
+        <p className="subtitle">Brand & Product Management Platform</p>
 
         {user && (
           <p className="welcome-message">
-            Welcome back, {user.email}!
-            {userIsAdmin && <span> (Administrator)</span>}
+            Welcome, <strong>{user.email}</strong>
+            {userIsAdmin && <span className="role-badge">Admin</span>}
           </p>
         )}
 
-        <div className="cta-buttons">
-          <Link to="/blindboxes" className="cta-button primary">
-            View BlindBoxes
+        <div className="actions">
+          <Link to="/blindboxes" className="btn btn-primary">
+            View Products
           </Link>
           {userIsAdmin && (
-            <Link to="/admin/dashboard" className="cta-button secondary">
-              Admin Dashboard
+            <Link to="/admin/dashboard" className="btn btn-secondary">
+              Dashboard
             </Link>
           )}
         </div>
       </div>
 
-      <div className="features">
-        <h2>System Features</h2>
-        <div className="grid">
-          <div className="card feature-card">
-            <h3>🏢 Brand Management</h3>
-            <p>Create and manage brands with full CRUD operations</p>
-          </div>
+      <div className="quick-access">
+        <Link to="/blindboxes" className="access-card">
+          <span className="icon">📦</span>
+          <h3>Products</h3>
+          <p>Browse catalog</p>
+        </Link>
 
-          <div className="card feature-card">
-            <h3>📦 BlindBox Catalog</h3>
-            <p>Browse and manage blind box products</p>
-          </div>
-
-          <div className="card feature-card">
-            <h3>🔐 JWT Authentication</h3>
-            <p>Secure authentication with role-based access control</p>
-          </div>
-
-          <div className="card feature-card">
-            <h3>⚡ Microservices Backend</h3>
-            <p>Spring Boot microservices with API Gateway</p>
-          </div>
-
-          <div className="card feature-card">
-            <h3>👨‍💼 Admin Dashboard</h3>
-            <p>Comprehensive admin tools with real-time stats</p>
-          </div>
-
-          <div className="card feature-card">
-            <h3>🔔 Real-time Notifications</h3>
-            <p>Instant feedback for all operations</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="features">
-        <h2>Quick Links</h2>
-        <div className="quick-links">
-          <Link to="/blindboxes" className="quick-link-card card">
-            <div className="quick-link-icon">📦</div>
-            <h3>Browse BlindBoxes</h3>
-            <p>View all available blind box products</p>
+        {userIsAdmin && (
+          <Link to="/admin/dashboard" className="access-card">
+            <span className="icon">📊</span>
+            <h3>Dashboard</h3>
+            <p>Admin panel</p>
           </Link>
+        )}
 
-          {userIsAdmin && (
-            <>
-              <Link to="/admin/brands" className="quick-link-card card">
-                <div className="quick-link-icon">🏢</div>
-                <h3>Manage Brands</h3>
-                <p>Add, edit, or remove brands</p>
-              </Link>
-
-              <Link to="/admin/blindboxes" className="quick-link-card card">
-                <div className="quick-link-icon">✏️</div>
-                <h3>Manage BlindBoxes</h3>
-                <p>Create and edit blind box products</p>
-              </Link>
-            </>
-          )}
-
-          <Link to="/about" className="quick-link-card card">
-            <div className="quick-link-icon">ℹ️</div>
-            <h3>About</h3>
-            <p>Learn more about the system</p>
-          </Link>
-        </div>
+        <Link to="/about" className="access-card">
+          <span className="icon">ℹ️</span>
+          <h3>About</h3>
+          <p>System info</p>
+        </Link>
       </div>
     </div>
   )

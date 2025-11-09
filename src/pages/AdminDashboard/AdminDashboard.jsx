@@ -117,21 +117,15 @@ const AdminDashboard = () => {
       <div className="dashboard-actions">
         <h2>Quick Actions</h2>
         <div className="actions-grid">
-          <Link to="/admin/brands" className="action-card">
-            <div className="action-icon">🏢</div>
-            <h3>Manage Brands</h3>
-            <p>Create, edit, and delete brands</p>
-          </Link>
-
           <Link to="/admin/blindboxes" className="action-card">
             <div className="action-icon">📦</div>
-            <h3>Manage BlindBoxes</h3>
+            <h3>Manage Products</h3>
             <p>Create, edit, and delete blind boxes</p>
           </Link>
 
           <Link to="/blindboxes" className="action-card">
             <div className="action-icon">👁️</div>
-            <h3>View as User</h3>
+            <h3>View Catalog</h3>
             <p>See the customer view</p>
           </Link>
         </div>

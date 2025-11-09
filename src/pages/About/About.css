@@ -1,77 +1,125 @@
 .about {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 .about h1 {
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  color: #646cff;
 }
 
 .about h2 {
   margin-bottom: 1rem;
+  font-size: 1.25rem;
   color: #646cff;
 }
 
-.tech-list, .feature-list {
-  list-style: none;
-  padding-left: 0;
+.about .card {
+  margin-bottom: 1.5rem;
 }
 
-.tech-list li, .feature-list li {
-  padding: 0.5rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.tech-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #646cff;
-  font-weight: bold;
-}
-
-.feature-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #646cff;
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.architecture {
+.tech-stack {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
 }
 
-.arch-section {
-  padding: 1rem;
-  background-color: rgba(100, 108, 255, 0.1);
+.tech-item strong {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: #646cff;
+  font-size: 1.05rem;
+}
+
+.tech-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-item li {
+  padding: 0.25rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.tech-item li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #646cff;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.feature-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #51cf66;
+  font-weight: bold;
+}
+
+.roles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.role-item {
+  padding: 1.25rem;
+  background: rgba(100, 108, 255, 0.1);
   border-radius: 8px;
   border: 1px solid rgba(100, 108, 255, 0.2);
 }
 
-.arch-section h3 {
+.role-item strong {
+  display: block;
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  color: #646cff;
+  font-size: 1.05rem;
 }
 
-.arch-section p {
+.role-item p {
+  margin: 0;
   font-size: 0.9rem;
   opacity: 0.8;
 }
 
 @media (max-width: 768px) {
   .about h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
-  .architecture {
+  .tech-stack,
+  .roles {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .role-item {
+    background: #f8f9fa;
+    border-color: #dee2e6;
+  }
+
+  .tech-item li::before {
+    color: #495057;
   }
 }

@@ -109,33 +109,9 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="demo-credentials">
-          <h3>Demo Credentials</h3>
-          <div className="credentials-list">
-            {demoCredentials.map((cred, index) => (
-              <div key={index} className="credential-item">
-                <div className="credential-info">
-                  <strong>{cred.role}</strong>
-                  <span>{cred.email}</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => fillDemoCredentials(cred)}
-                  className="btn-fill"
-                  disabled={loading}
-                >
-                  Use
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+    
 
-        <div className="login-footer">
-          <p>
-            <strong>Note:</strong> Make sure the MSS backend is running on port 8084
-          </p>
-        </div>
+      
       </div>
     </div>
   )

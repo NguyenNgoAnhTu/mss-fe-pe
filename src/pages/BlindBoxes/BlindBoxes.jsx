@@ -40,7 +40,9 @@ const BlindBoxes = () => {
       ])
 
       if (boxesRes.success) {
-        setBlindBoxes(boxesRes.data || [])
+        // Sort by blindBoxId ascending (smallest to largest, oldest to newest)
+        const sortedBoxes = (boxesRes.data || []).sort((a, b) => a.blindBoxId - b.blindBoxId)
+        setBlindBoxes(sortedBoxes)
       }
 
       if (catsRes.success) {
@@ -128,10 +130,16 @@ const BlindBoxes = () => {
 
   const handleEdit = (box) => {
     setEditingBox(box)
+
+    // Find the category and brand IDs by matching names
+    // Note: both categories and brands use 'categoryName' and 'brandName' properties
+    const category = categories.find(c => c.categoryName === box.categoryName)
+    const brand = brands.find(b => b.brandName === box.brandName)
+
     setFormData({
       name: box.name,
-      categoryId: categories.find(c => c.name === box.categoryName)?.categoryId || '',
-      brandId: brands.find(b => b.name === box.brandName)?.brandId || '',
+      categoryId: category ? category.categoryId.toString() : '',
+      brandId: brand ? brand.brandId.toString() : '',
       price: box.price.toString(),
       stock: box.stock.toString(),
       releaseDate: box.releaseDate
@@ -235,7 +243,7 @@ const BlindBoxes = () => {
                   <option value="">Select Category</option>
                   {categories.map(cat => (
                     <option key={cat.categoryId} value={cat.categoryId}>
-                      {cat.name}
+                      {cat.categoryName}
                     </option>
                   ))}
                 </select>
@@ -253,7 +261,7 @@ const BlindBoxes = () => {
                   <option value="">Select Brand</option>
                   {brands.map(brand => (
                     <option key={brand.brandId} value={brand.brandId}>
-                      {brand.name}
+                      {brand.brandName}
                     </option>
                   ))}
                 </select>
@@ -326,7 +334,6 @@ const BlindBoxes = () => {
             <div key={box.blindBoxId} className="card blindbox-card">
               <div className="blindbox-card-header">
                 <h3>{box.name}</h3>
-                <span className="blindbox-id">ID: {box.blindBoxId}</span>
               </div>
 
               <div className="blindbox-card-body">

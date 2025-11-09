@@ -3,7 +3,7 @@ import { useAppContext } from '../../context/AppContext'
 import './Header.css'
 
 const Header = () => {
-  const { user, theme, toggleTheme, logout, isAdmin } = useAppContext()
+  const { user, logout, isAdmin } = useAppContext()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -17,42 +17,28 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header-content">
-          <div className="logo">
-            <Link to="/">MSS BlindBox</Link>
-          </div>
+          <Link to="/" className="logo">
+            MSS BlindBox
+          </Link>
 
           <nav className="nav">
             <Link to="/" className="nav-link">Home</Link>
-            <Link to="/about" className="nav-link">About</Link>
-            <Link to="/blindboxes" className="nav-link">BlindBoxes</Link>
-
+            <Link to="/blindboxes" className="nav-link">Products</Link>
             {userIsAdmin && (
-              <>
-                <Link to="/admin/dashboard" className="nav-link admin-link">
-                  Admin Dashboard
-                </Link>
-                <Link to="/admin/brands" className="nav-link admin-link">
-                  Brands
-                </Link>
-              </>
+              <Link to="/admin/dashboard" className="nav-link">Dashboard</Link>
             )}
           </nav>
 
           <div className="header-actions">
-            <button onClick={toggleTheme} className="theme-toggle">
-              {theme === 'dark' ? '☀️' : '🌙'}
-            </button>
-
             {user ? (
-              <div className="user-section">
-                <span className="user-name">
-                  {user.email}
-                  {userIsAdmin && <span className="admin-badge">ADMIN</span>}
-                </span>
-                <button onClick={handleLogout} className="btn-logout">Logout</button>
-              </div>
+              <>
+                <span className="user-email">{user.email}</span>
+                <button onClick={handleLogout} className="btn-logout">
+                  Logout
+                </button>
+              </>
             ) : (
-              <Link to="/login" className="nav-link">Login</Link>
+              <Link to="/login" className="btn-login">Login</Link>
             )}
           </div>
         </div>

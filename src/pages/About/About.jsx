@@ -3,70 +3,64 @@ import './About.css'
 const About = () => {
   return (
     <div className="about">
-      <h1>About This Project</h1>
+      <h1>About MSS BlindBox System</h1>
 
       <div className="card">
-        <h2>React Full Flow Application</h2>
+        <h2>System Overview</h2>
         <p>
-          This is a comprehensive React application that demonstrates the complete
-          development flow and best practices for building modern web applications.
+          A full-stack brand and product management system built with React frontend
+          and Spring Boot microservices backend.
         </p>
       </div>
 
       <div className="card">
-        <h2>Technologies Used</h2>
-        <ul className="tech-list">
-          <li><strong>React 18</strong> - Modern React with hooks</li>
-          <li><strong>Vite</strong> - Fast build tool and dev server</li>
-          <li><strong>React Router</strong> - Client-side routing</li>
-          <li><strong>Context API</strong> - State management</li>
-          <li><strong>Axios</strong> - HTTP client for API calls</li>
-          <li><strong>Custom Hooks</strong> - Reusable logic patterns</li>
-        </ul>
-      </div>
-
-      <div className="card">
-        <h2>Architecture</h2>
-        <div className="architecture">
-          <div className="arch-section">
-            <h3>📁 Components</h3>
-            <p>Reusable UI components like Header, Footer, Layout, and Notifications</p>
+        <h2>Technology Stack</h2>
+        <div className="tech-stack">
+          <div className="tech-item">
+            <strong>Frontend</strong>
+            <ul>
+              <li>React 18</li>
+              <li>React Router v6</li>
+              <li>Axios</li>
+              <li>Vite</li>
+            </ul>
           </div>
-
-          <div className="arch-section">
-            <h3>📄 Pages</h3>
-            <p>Route-level components for different views (Home, About, Dashboard)</p>
-          </div>
-
-          <div className="arch-section">
-            <h3>🎣 Hooks</h3>
-            <p>Custom hooks for data fetching, forms, and localStorage</p>
-          </div>
-
-          <div className="arch-section">
-            <h3>🌐 Services</h3>
-            <p>API layer with Axios interceptors and organized endpoints</p>
-          </div>
-
-          <div className="arch-section">
-            <h3>📦 Context</h3>
-            <p>Global state management for user, theme, and notifications</p>
+          <div className="tech-item">
+            <strong>Backend</strong>
+            <ul>
+              <li>Spring Boot</li>
+              <li>API Gateway</li>
+              <li>JWT Authentication</li>
+              <li>PostgreSQL</li>
+            </ul>
           </div>
         </div>
       </div>
 
       <div className="card">
-        <h2>Key Features</h2>
+        <h2>Features</h2>
         <ul className="feature-list">
-          <li>Component-based architecture</li>
-          <li>Global state management with Context API</li>
-          <li>Custom hooks for reusable logic</li>
-          <li>API integration with error handling</li>
-          <li>Form handling with validation</li>
-          <li>Toast notification system</li>
-          <li>Responsive design</li>
-          <li>Dark/Light theme support</li>
+          <li>Brand Management (CRUD)</li>
+          <li>BlindBox Product Catalog</li>
+          <li>Role-Based Access Control</li>
+          <li>Admin Dashboard with Statistics</li>
+          <li>JWT Authentication</li>
+          <li>Real-time Notifications</li>
         </ul>
+      </div>
+
+      <div className="card">
+        <h2>User Roles</h2>
+        <div className="roles">
+          <div className="role-item">
+            <strong>Admin</strong>
+            <p>Full access to create, edit, and delete brands and products</p>
+          </div>
+          <div className="role-item">
+            <strong>User</strong>
+            <p>View-only access to browse products</p>
+          </div>
+        </div>
       </div>
     </div>
   )
